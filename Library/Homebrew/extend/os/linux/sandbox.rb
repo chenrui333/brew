@@ -15,16 +15,22 @@ module OS
       TIOCSCTTY = 0x540E
       private_constant :TIOCSCTTY
 
+      # deadcode:keep part of the in-progress Linux sandbox refactor
+      # (c3d30c010d, 2026-07-21); likely still under active development.
       sig { returns(::PATH) }
       def self.bubblewrap_candidate_paths
         ::Sandbox::Bubblewrap.executable_candidate_paths
       end
 
+      # deadcode:keep part of the in-progress Linux sandbox refactor
+      # (c3d30c010d, 2026-07-21); likely still under active development.
       sig { returns(T.nilable(::Pathname)) }
       def self.bubblewrap_executable
         ::Sandbox::Bubblewrap.executable
       end
 
+      # deadcode:keep part of the in-progress Linux sandbox refactor
+      # (c3d30c010d, 2026-07-21); likely still under active development.
       sig { returns(::Pathname) }
       def self.bubblewrap_executable!
         ::Sandbox::Bubblewrap.executable!
@@ -77,6 +83,8 @@ module OS
           ::Sandbox::Bubblewrap.executable_usable?(candidate)
         end
 
+        # deadcode:keep part of the in-progress Linux sandbox refactor
+        # (c3d30c010d, 2026-07-21); likely still under active development.
         sig { returns(T::Array[String]) }
         def system_bubblewrap_paths
           ::Sandbox::Bubblewrap.system_paths
@@ -87,16 +95,22 @@ module OS
           ::Sandbox::Bubblewrap.executable_candidate_paths
         end
 
+        # deadcode:keep part of the in-progress Linux sandbox refactor
+        # (c3d30c010d, 2026-07-21); likely still under active development.
         sig { returns(::PATH) }
         def bubblewrap_candidate_paths
           executable_candidate_paths
         end
 
+        # deadcode:keep part of the in-progress Linux sandbox refactor
+        # (c3d30c010d, 2026-07-21); likely still under active development.
         sig { returns(T.nilable(::Pathname)) }
         def bubblewrap_executable
           ::Sandbox::Bubblewrap.executable
         end
 
+        # deadcode:keep part of the in-progress Linux sandbox refactor
+        # (c3d30c010d, 2026-07-21); likely still under active development.
         sig { returns(::Pathname) }
         def bubblewrap_executable!
           ::Sandbox::Bubblewrap.executable!
@@ -183,6 +197,8 @@ module OS
         implementation.command(args, tmpdir)
       end
 
+      # deadcode:keep part of the in-progress Linux sandbox refactor
+      # (c3d30c010d, 2026-07-21); likely still under active development.
       sig { params(tmpdir: String).returns(T::Array[String]) }
       def bubblewrap_args(tmpdir)
         bubblewrap.arguments(tmpdir)
