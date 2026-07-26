@@ -19,9 +19,9 @@ RSpec.describe Homebrew::Cmd::WhichFormula do
     end
 
     before do
-      # Write the database where the Bash command reads it, under the test
-      # environment's HOMEBREW_CACHE.
-      db = HOMEBREW_CACHE/"api"/Homebrew::Cmd::WhichFormula::ENDPOINT
+      # Write the database where `brew which-formula` (a Bash command) reads it:
+      # the same path `Homebrew::API.write_executables_file!` writes to.
+      db = Homebrew::API::HOMEBREW_CACHE_API/"internal/executables.txt"
       db.dirname.mkpath
       db.write(<<~EOS)
         foo(1.0.0):foo2 foo3

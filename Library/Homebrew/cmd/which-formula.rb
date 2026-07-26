@@ -11,9 +11,6 @@ require "shell_command"
 module Homebrew
   module Cmd
     class WhichFormula < AbstractCommand
-      # @api internal
-      ENDPOINT = "internal/executables.txt"
-
       include ShellCommand
 
       cmd_args do
