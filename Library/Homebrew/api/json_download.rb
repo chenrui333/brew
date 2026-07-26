@@ -10,7 +10,6 @@ module Homebrew
       def initialize(url, name, version, **meta)
         super
         @target = T.let(meta.fetch(:target), Pathname)
-        @stale_seconds = T.let(meta[:stale_seconds], T.nilable(Integer))
       end
 
       sig { override.params(timeout: T.nilable(T.any(Integer, Float))).returns(Pathname) }
@@ -40,7 +39,6 @@ module Homebrew
         super()
         @url = T.let(URL.new(url, using: API::JSONDownloadStrategy, target:, stale_seconds:), URL)
         @target = target
-        @stale_seconds = stale_seconds
       end
 
       sig { override.returns(API::JSONDownloadStrategy) }
